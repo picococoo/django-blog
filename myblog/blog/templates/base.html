@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <style type="text/css">
+            body{color:#efd;background:#453;padding:0 5em;margin:0}
+            h1{padding:2em 1em;background:#675;text-align: center}
+            h2{color:#bf8;border-top:1px dotted #fff;margin-top:2em}
+            p{margin:1em 0}
+        </style>
+    </head>
+
+    <body>
+        {% if user.is_authenticated %}
+        <strong>欢迎{{ user }}</strong>
+        <a href="{% url 'blog:logout' %}">登出</a>
+        {% else %}
+        <a href="{% url 'blog:register' %}">注册</a>
+        <a href="{% url 'blog:login' %}">登录</a>
+        {% endif %}
+        <h1>写一个blog-阿楠你学会了嘛</h1>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

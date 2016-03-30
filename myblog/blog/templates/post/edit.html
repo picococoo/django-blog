@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/">回到主页</a>
+{% if form.errors %}
+    <p style="color: red;">
+        {# pulralize 是filter，用来判断是否为添加's'来表示单词的复数形式#}
+        Please correct the error{{ form.errors|pluralize }} below.
+    </p>
+{% endif %}
+<form action="" method="post">
+   {% csrf_token %}
+   {{ form.as_p }}
+   <input type="submit" value="更新">
+</form>
+{% endblock %}
